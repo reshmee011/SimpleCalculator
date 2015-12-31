@@ -117,9 +117,9 @@
 
 (defn home-page []
   (let [{:keys [number result operator]} @result-data]
-  [:div [:h3 "Welcome to calculators"]
+  [:div
    [navigation-view]
-   [:p]
+   [:h4 "Maths Calculator"]
    [:input {:type "number"
                :value  number
                :on-change (fn [e]
@@ -197,8 +197,8 @@
   (let [{:keys [dob pensiondate age]} @pension-age]
   [:div
   [navigation-view]
-   [:div [:h2 "State Pension Age Calculator"]
-    [:h4 "Enter Date Of Birth"]
+   [:div [:h4 "State Pension Age Calculator"]
+    [:p "Enter Date Of Birth"]
     [:input {:type "date"
              :on-change (fn [e] (swap! pension-age assoc :dob (js/Date. (.-target.value e))))
              }]
