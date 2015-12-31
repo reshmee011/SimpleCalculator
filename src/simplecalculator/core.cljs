@@ -13,23 +13,8 @@
 
 (def today (js/Date.))
 
-
-(defn- before [date days]
-;; "Return a new js/Date which is the given number of days before the given date"
-   (js/Date. (.getFullYear date) (.getMonth date) (- (.getDate date) days)))
-
 (defn date? [x]
   (= (type x) js/Date))
-
-
-(defn days-between [x y]
-;;  "Return the number of days between the two js/Date instances"
-   (when (every? date? [x y])
-     (let [ms-per-day (* 1000 60 60 25)
-           x-ms (.getTime x)
-           y-ms (.getTime y)]
-       (.round js/Math (.abs js/Math (/ (- x-ms y-ms) ms-per-day)))))
-  )
 
 
 (defn get-date! [date]
